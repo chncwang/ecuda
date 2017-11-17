@@ -8,19 +8,7 @@
 #include "../include/ecuda/matrix.hpp"
 
 #include "config.hpp"
-#ifndef BENCHMARK_THREADS
-#define BENCHMARK_THREADS 480
-#endif
 
-typedef double value_type;
-
-template<typename T,std::size_t N>
-    __global__
-void copyArray( typename ecuda::array<T,N>::const_kernel_argument src, typename ecuda::array<T,N>::kernel_argument dest )
-{
-    const int t = blockIdx.x*blockDim.x+threadIdx.x;
-    if( t < src.size() ) dest[t] = src[t];
-}
 
 int main( int argc, char* argv[] )
 {
