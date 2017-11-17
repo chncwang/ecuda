@@ -4,8 +4,8 @@ PROJECT(ecuda)
 FIND_PACKAGE(CUDA REQUIRED)
 INCLUDE(FindCUDA)
 
-#LIST(APPEND CUDA_NVCC_FLAGS -arch=sm_21 -O3 -Xptxas -v)
-#LIST(APPEND CMAKE_CXX_FLAGS "-std=c++11 -O3 -Wall -pedantic -flto")
+LIST(APPEND CUDA_NVCC_FLAGS "-O3 -std=c++11")
+LIST(APPEND CMAKE_CXX_FLAGS "-std=c++11 -O3 -Wall -pedantic -flto")
 SET(CUDA_PROPAGATE_HOST_FLAGS OFF)
 
 INCLUDE( ../local-config.cmake OPTIONAL )
